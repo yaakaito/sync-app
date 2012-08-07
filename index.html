@@ -1,0 +1,47 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <title>sync-app</title>
+    <meta charset="utf8" />
+    <script type="text/javascript" src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.0.14.min.js"></script>
+    <script type="text/javascript" src="./javascripts/app.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>sync test app</h1>
+      <p>using Angular and Parse.com</p>
+    </header>
+    <article>
+      <div ng-controller="AppCtrl">
+        <section>
+          <h2>account</h2>
+          <div>
+            <input ng-model="naccount" type="text" />
+            <input ng-model="npass" type="password" />
+            <button ng-click="createAccount()">create</button>
+          </div>
+          <div>
+            <input ng-model="laccount" type="text" />
+            <input ng-model="lpass" type="password" />
+            <button ng-click="login()">login</button>
+          </div>
+        </section>
+        <section>
+          <h2>Test-Objects</h2>
+          <button ng-click="sync()">sync</button>
+          <div>
+            <input ng-model="item-name" type="text" />
+            <input ng-model="item-description" type="text" />
+            <button ng-click="addItem()">add</button>
+          </div>
+          <ul>
+            <li ng-repeat="item in items">
+              {{ item.name }} / {{ item.description }}
+            </li>
+          </ul>
+        </section>
+      </div>
+    </article>
+  </body>
+</html>
