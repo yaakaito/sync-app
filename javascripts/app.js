@@ -1,10 +1,16 @@
 function AppCtrl($scope) {
   $scope.createAccount = function() {
-    alert($scope.naccount);
-    alert($scope.npass);
+  
   }
 
   $scope.login = function() {
-    alert($scope.laccount);
+
   }
+
+  $scope.addItem = function() {
+    
+  }
+
+  Parse.initialize("ZmZd8uAiLo0jYP6rQmxZ4YyBprNVDg2hZqUoGane", "Etil6taJbynJCtWn5OlRvQ4t2pKmufwocoxTbxJg");
+
 }
