@@ -28,16 +28,16 @@
           </div>
         </section>
         <section>
-          <h2>Test-Objects</h2>
+          <h2>Objects</h2>
           <button ng-click="sync()">sync</button>
           <div>
-            <input ng-model="item-name" type="text" />
-            <input ng-model="item-description" type="text" />
+            <input ng-model="itemName" type="text" />
+            <input ng-model="itemDescription" type="text" />
             <button ng-click="addItem()">add</button>
           </div>
           <ul>
             <li ng-repeat="item in items">
-              {{ item.name }} / {{ item.description }}
+              {{ item.get("name") }} / {{ item.get("description") }}
             </li>
           </ul>
         </section>
