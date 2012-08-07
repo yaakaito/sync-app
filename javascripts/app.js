@@ -25,7 +25,8 @@ function AppCtrl($scope) {
 
   $scope.addItem = function() {
     var item = new SyncAppObject({name : $scope.itemName, description : $scope.itemDescription});
-    list.add(item);    
+    list.add(item);
+    item.save();   
   };
 
   Parse.initialize("ZmZd8uAiLo0jYP6rQmxZ4YyBprNVDg2hZqUoGane", "Etil6taJbynJCtWn5OlRvQ4t2pKmufwocoxTbxJg");
