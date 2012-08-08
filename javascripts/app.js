@@ -12,8 +12,8 @@ function AppCtrl($scope) {
     }
   });
   
-  var list = new SyncAppObjectList();
-  $scope.items = list.models;
+  var objectList = new SyncAppObjectList();
+  $scope.items = objectList.models;
 
   $scope.createAccount = function() {
     Parse.User.signUp($scope.naccount, $scope.npass, { ACL: new Parse.ACL() }, {
@@ -50,10 +50,17 @@ function AppCtrl($scope) {
                                   , description : $scope.itemDescription
                                   , user : Parse.User.current()
                                   , ACL : new Parse.ACL(Parse.User.current())});
-    list.add(item);
-    $scope.items = list.models;
+    objectList.add(item);
+    $scope.items = objectList.models;
     item.save();
   };
+
+  $scope.syncItems = function() {
+    objectList.query = new Parse.Query(SyncAppObject);
+    objectList.query.equalTo("user", Parse.User.current());
+    objectList.fetch();
+    $scope.items = objectList.models; 
+  }
 
   Parse.initialize("ZmZd8uAiLo0jYP6rQmxZ4YyBprNVDg2hZqUoGane", "Etil6taJbynJCtWn5OlRvQ4t2pKmufwocoxTbxJg");
   if(Parse.User.current()) {
