@@ -16,7 +16,14 @@ function AppCtrl($scope) {
   $scope.items = list.models;
 
   $scope.createAccount = function() {
-  
+    Parse.User.signUp($scope.naccount, $scope.npass, { ACL: new Parse.ACL() }, {
+      success: function(user) {
+        alert("ユーザー登録に成功したよ。 o(*^▽^*)o");
+      }
+      , error: function(user, error) {
+        alert("ユーザー登録に失敗しちゃったよ。 (ﾉ_･｡)");
+      }
+    });
   };
 
   $scope.login = function() {
